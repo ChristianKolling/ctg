@@ -3,7 +3,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('ONE ' . $this->translate('SOLUTIONS'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headTitle('Admin - ' . $this->translate('Potro Sem Dono'))->setSeparator(' - ')->setAutoEscape(false) ?>
 
         <?php
         echo $this->headMeta()
@@ -66,10 +66,7 @@
             <?php } ?>
 
             <?php echo $this->content; ?>
-            
-            <footer style="padding-top: 13%;">
-                <p style="text-align: center;">&copy; 2015 - <?php echo date('Y') ?> One Solutions LTDA. <?php echo $this->translate('All rights reserved') ?></p>
-            </footer>
+
         </div> <!-- /container -->
         <?php echo $this->inlineScript() ?>
     </body>
