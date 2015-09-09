@@ -1,0 +1,54 @@
+<section class="content-header">
+    <h1>
+        Configurações
+        <small>altere as configurações da sua conta</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/main"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="/main/config">Configurações</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <?php echo $this->form()->openTag($form); ?> 
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('nome')); ?> 
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('email')); ?> 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('senha')); ?>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('confirmarsenha')); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('telefone')); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 pull-right">
+                    <?php echo $this->formRow($form->get('salvar')); ?> 
+                </div>
+            </div>
+            <?php echo $this->form()->closeTag($form); ?> 
+        </div>
+    </div>
+</section>

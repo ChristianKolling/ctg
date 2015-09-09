@@ -1,0 +1,76 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ONE ' . $this->translate('SOLUTIONS'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php
+        echo $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <!-- Le styles -->
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                ->prependStylesheet($this->basePath('css/app.css'))
+                ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+                ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+        ?>
+
+        <!-- Scripts -->
+        <?php
+        echo $this->headScript()
+                ->prependFile($this->basePath('js/app.js'))
+                ->prependFile($this->basePath('plugins/jquery.validate.js'))
+                ->prependFile($this->basePath('plugins/jquery.plainoverlay.js'))
+                ->prependFile($this->basePath('js/bootstrap.min.js'))
+                ->prependFile($this->basePath('js/jquery.min.js'))
+                ->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath('js/html5shiv.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+        ;
+        ?>
+    </head>
+    <body>
+        <div class="container">
+
+
+            <?php if ($this->flashMessenger()->getSuccessMessages()) { ?>
+                <div class="alert alert-success" id="mensagem-sucesso">
+                    <?php foreach ($this->flashMessenger()->getSuccessMessages() as $msg) { ?>
+                        <button type="button" class="close" data-dismiss="alert">×</button>    
+                        <strong><?php echo $msg; ?></strong>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+            <!-- Msg Error -->
+
+            <?php if ($this->flashMessenger()->getErrorMessages()) { ?>
+                <div class="alert alert-danger">
+                    <?php foreach ($this->flashMessenger()->getErrorMessages() as $msg) { ?>
+                        <button type="button" class="close" data-dismiss="alert">×</button>    
+                        <strong><?php echo $msg; ?></strong>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+
+            <!-- Msg Warning -->
+
+            <?php if ($this->flashMessenger()->getInfoMessages()) { ?>
+                <div class="alert alert-warning">
+                    <?php foreach ($this->flashMessenger()->getInfoMessages() as $msg) { ?>
+                        <button type="button" class="close" data-dismiss="alert">×</button>    
+                        <strong><?php echo $msg; ?></strong>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+
+            <?php echo $this->content; ?>
+            
+            <footer style="padding-top: 13%;">
+                <p style="text-align: center;">&copy; 2015 - <?php echo date('Y') ?> One Solutions LTDA. <?php echo $this->translate('All rights reserved') ?></p>
+            </footer>
+        </div> <!-- /container -->
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<div class="container">    
+    <div style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title">Por Favor, Faça Login</div>
+                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="/app/esqueceu-sua-senha">Esqueçeu sua Senha?</a></div>
+            </div>     
+            <div style="padding-top:30px" class="panel-body" >
+                <?php echo $this->form()->openTag($form); ?>    
+                <div class="form-horizontal" role="form">
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <?php echo $this->formRow($form->get('email')); ?>                                 
+                    </div>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <?php echo $this->formRow($form->get('senha')); ?>
+                    </div>
+                    <div style="margin-top:10px" class="form-group">
+                        <div class="col-sm-12 controls">
+                            <!--                            <a id="btn-login" href="#" class="btn btn-success">Login  </a>    -->
+                            <?php echo $this->formRow($form->get('login')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 control">
+                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                Ainda não é Cliente? 
+                                <a href="/app/cadastre-se">
+                                    Cadastre-se Aqui!
+                                </a>
+                            </div>
+                        </div>
+                    </div>    
+                </div>     
+                <?php echo $this->form()->closeTag($form); ?>
+            </div>                     
+        </div>  
+    </div>
+</div>
