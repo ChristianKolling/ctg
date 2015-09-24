@@ -1,6 +1,6 @@
 {
     "name": "zendframework/skeleton-application",
-    "description": "ONE SOLUTIONS - E-COMMERCE",
+    "description": "CTG",
     "license": "BSD-3-Clause",
     "keywords": [
         "framework",
@@ -10,6 +10,7 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "~2.3",
+        "zendframework/zftool": "dev-master",
         "evandotpro/edp-module-layouts": "dev-master",
         "doctrine/doctrine-orm-module": "0.7.*"
     }
