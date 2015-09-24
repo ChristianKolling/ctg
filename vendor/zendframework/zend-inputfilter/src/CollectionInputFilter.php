@@ -13,27 +13,27 @@ use Traversable;
 
 class CollectionInputFilter extends InputFilter
 {
-    /*
+    /**
      * @var bool
      */
     protected $isRequired = false;
 
-    /*
+    /**
      * @var int
      */
     protected $count = null;
 
-    /*
-     * @var array
+    /**
+     * @var array[]
      */
     protected $collectionValues = [];
 
-    /*
-     * @var array
+    /**
+     * @var array[]
      */
     protected $collectionRawValues = [];
 
-    /*
+    /**
      * @var array
      */
     protected $collectionMessages = [];
@@ -60,7 +60,7 @@ class CollectionInputFilter extends InputFilter
             throw new Exception\RuntimeException(sprintf(
                 '%s expects an instance of %s; received "%s"',
                 __METHOD__,
-                'Zend\InputFilter\BaseInputFilter',
+                BaseInputFilter::class,
                 (is_object($inputFilter) ? get_class($inputFilter) : gettype($inputFilter))
             ));
         }
@@ -140,6 +140,8 @@ class CollectionInputFilter extends InputFilter
     public function setData($data)
     {
         $this->data = $data;
+
+        return $this;
     }
 
     /**
@@ -226,7 +228,7 @@ class CollectionInputFilter extends InputFilter
     /**
      * Clear collectionValues
      *
-     * @access public
+     * @return array[]
      */
     public function clearValues()
     {
@@ -236,7 +238,7 @@ class CollectionInputFilter extends InputFilter
     /**
      * Clear collectionRawValues
      *
-     * @access public
+     * @return array[]
      */
     public function clearRawValues()
     {
