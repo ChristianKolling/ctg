@@ -1,0 +1,85 @@
+<section class="content-header">
+    <h1>
+        Agenda
+        <small>Acompanhe aqui todos os eventos nos próximos dias</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/main"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="/main/agenda">Agenda</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <table class="table table-striped custab" id="table-produtos">
+                        <thead>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="/admin/agenda/novo" class="btn btn-primary btn-sm pull-left"><b>+</b> Add novo Evento</a>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div id="custom-search-input">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm" placeholder="Buscar" />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-info btn-sm" type="button">
+                                                <i class="glyphicon glyphicon-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome do Evento</th>
+                            <th>Local</th>
+                            <th>Horário</th>
+                            <th>Data de Realização</th>
+                            <th>Status</th>
+                            <th>Imagem</th>
+                        </tr>
+                        </thead>
+                        <?php foreach ($agenda as $inf): ?>
+                            <tr>
+                                <td><?php echo $inf['id']; ?> </td>
+                                <td><?php echo $inf['evento']; ?> </td>
+                                <td><?php echo $inf['local']; ?> </td>
+                                <td><?php echo $inf['horario']; ?></td>
+                                <td><?php echo $inf['data']->format('d-m-Y'); ?> </td>
+                                <?php if ($inf['status'] == 1) : ?>
+                                    <td>
+                                        <span class="badge bg-green-gradient"><?php echo $inf['descricao']; ?> </span>
+                                    </td>
+                                <?php endif; ?>
+                                <?php if ($inf['status'] == 2) : ?>
+                                    <td>
+                                        <span class="badge bg-red-gradient"><?php echo $inf['descricao']; ?> </span>
+                                    </td>
+                                <?php endif; ?>
+                                <td>
+                                    <a class="glyphicon glyphicon-camera" title="Visualizar Imagem"></a>
+                                </td>
+                                <td>
+                                    <a class="glyphicon glyphicon-edit" href="/admin/agenda/editar/id/<?php echo $inf['id']; ?>" title="Editar"></a>
+                                    <a class="glyphicon glyphicon-trash" href="/admin/agenda/deletar/id/<?php echo $inf['id']; ?>" title="Excluir"></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+
+                    <div class="row col-md-6">
+                        <?php
+                        echo $this->paginationControl($agenda, 'Sliding', 'partials/paginator.phtml');
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

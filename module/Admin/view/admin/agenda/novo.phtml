@@ -1,0 +1,50 @@
+<section class="content-header">
+    <h1>
+        Agenda
+        <small>Cadastre aqui novos eventos</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="/admin/agenda">Agenda</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <?php echo $this->form()->openTag($form); ?> 
+            <div class="row">
+                <div class="col-sm-7 col-md-7">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('nome-evento')); ?> 
+                    </div>
+                </div>
+                <div class="col-sm-2 col-md-2">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('data')); ?> 
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('status')); ?> 
+                    </div>
+                </div>
+                <div class="col-sm-10 col-md-10">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('local')); ?> 
+                    </div>
+                </div>
+                <div class="col-sm-2 col-md-2">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('horario')); ?> 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 pull-right">
+                    <?php echo $this->formRow($form->get('salvar')); ?> 
+                </div>
+            </div>
+            <?php echo $this->form()->closeTag($form); ?> 
+        </div>
+    </div>
+</section>

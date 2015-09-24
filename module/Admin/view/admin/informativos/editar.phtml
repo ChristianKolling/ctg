@@ -1,0 +1,46 @@
+<section class="content-header">
+    <h1>
+        Informativos
+        <small>Edição de informativo</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="/admin/informativos">Informativos</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <?php echo $this->form()->openTag($form); ?> 
+            <?php echo $this->formRow($form->get('id')); ?>
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('titulo')); ?> 
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('status')); ?> 
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('descricao')); ?> 
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('texto')); ?> 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 pull-right">
+                    <?php echo $this->formRow($form->get('salvar')); ?> 
+                </div>
+            </div>
+            <?php echo $this->form()->closeTag($form); ?> 
+        </div>
+    </div>
+</section>
