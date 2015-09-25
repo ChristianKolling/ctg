@@ -1,6 +1,6 @@
 <?php echo $this->doctype(); ?>
-
 <html lang="pt-br">
+    
     <head>
         <meta charset="utf-8">
         <?php echo $this->headTitle('-|CTG|- POTRO SEM DONO '); ?>
@@ -10,5 +10,64 @@
                 ->appendName('viewport', 'width=device-width, initial-scale=1.0')
                 ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                ->prependStylesheet($this->basePath('ctg/style.css'))
+        ?>
+        <?php
+        echo $this->headScript()
+                ->prependFile($this->basePath(''))
+        ;
+        ?>
     </head>
+    
+    <body style="background:#eeeeee url(../ctg/images/bg_body.jpg) top center no-repeat;">
+        <div class="content">
+            <div class="header">
+                <div class="logo">
+                    <a href="/site"><img src="../ctg/images/logo.png" alt="CTG - Espelho da Tradição" title="CTG - Espelho da Tradição"/></a>
+                </div>
+                <div class="facebook">
+                    <a href="https://www.facebook.com/CTG-POTRO-SEM-DONO-625764194105453" target="_blank"><img src="../ctg/images/btn_facebook.jpg" alt="Facebook" title="Facebook"/></a>
+                </div>
+                <div class="fone">
+                    <span>49</span> 3336.0034
+                </div>
+                <div class="eng_menu">
+                    <ul class="menu">
+                        <li><a href="/site/o-ctg" class="nomarginleft ">O CTG</a></li>
+                        <li><a href="/site/informativos" >INFORMATIVOS</a></li>
+                        <li><a href="/site/agenda" >AGENDA</a></li>
+                        <li><a href="/site/galeria-de-fotos" >GALERIA DE FOTOS</a></li>
+                        <li><a href="/site/contato" >CONTATO</a></li>
+                    </ul>
+                </div>
+            </div><!--header-->
+
+            <?php echo $this->content; ?>
+
+        </div><!--content-->
+        <div class="footer">
+            <div class="content">
+                <div class="endereco_footer">
+                    <div class="contato_footer">
+                        CTG Potro Sem Dono<br/>
+                        Rua João Moreira Filho, S/N - Centro, Guatambu-SC<br/>
+                        <a href="mailto:contato@ctgpotrosemdono.com.br">contato@ctgpotrosemdono.com.br</a>
+                    </div>
+                    <div class="tel_footer">
+                        <span>(49)</span> 3336.0034
+                    </div>
+                </div>
+                <div class="facebook_footer">
+                    <a href="https://www.facebook.com/CTG-POTRO-SEM-DONO-625764194105453" title="Facebook" target="_blank"><img src="../ctg/images/btn_facebook.jpg" alt="Facebook" title="Facebook"/></a>
+                </div>
+                <div class="copyright">
+                    © 2015 <a href="/site" target="_blank">CTG Potro Sem Dono</a> | Todos os direitos reservados<br/>
+                    Desenvolvido por <a href="www.compuwave.com.br" target="_blank">Compuwave Tecnologia</a>
+                </div>
+            </div>
+        </div>
+
+    </body>
 </html>
