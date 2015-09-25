@@ -1,11 +1,3 @@
-/*  
-Theme Name: CTG - Espelho da Tradição
-Theme URI: http://www.ctgespelhodatradicao.com.br
-Description: Tema CTG - Espelho da Tradição 2014
-Author: Core Soluções Tecnológicas
-Author URI: http://www.corest.com.br/
-Version: 1.0
-*/
 @charset "utf-8";
 *{padding:0; 
   margin:0;
@@ -127,7 +119,7 @@ h6.border {
 }
 .fone {
 	float:right;
-	background:url(images/bg_fone.jpg) left top no-repeat;
+	background:url(../images/bg_fone.jpg) left top no-repeat;
 	width:147px;
 	height:49px;
 	font-family: 'Roboto', sans-serif;
@@ -179,7 +171,7 @@ h6.border {
 	height:389px;
 	margin-bottom:50px;
 	position:relative;
-	background:url(ctg/images/sombra_banner.jpg) center bottom no-repeat;
+	background:url(../ctg/images/sombra_banner.jpg) center bottom no-repeat;
 }
 .images {
 	width:100%;
@@ -202,7 +194,7 @@ h6.border {
 }
 .images .principal h1{
 	padding-bottom:40px;
-	background:url(ctg/images/bg_title_banner.jpg) bottom center no-repeat;
+	background:url(../ctg/images/bg_title_banner.jpg) bottom center no-repeat;
 	margin-bottom:25px;
 }
 .images .principal p{
@@ -221,12 +213,12 @@ h6.border {
     height:19px;
     float:left;
     margin:5px;
-    background:url(ctg/images/slidetabs.png) left top no-repeat;
+    background:url(../ctg/images/slidetabs.png) left top no-repeat;
     display:block;
     font-size:0;
 }
 .slidetabs a:hover, .slidetabs a.current {
-    background:url(ctg/images/slidetabs_hover.png) left top no-repeat;
+    background:url(../ctg/images/slidetabs_hover.png) left top no-repeat;
 }
 .forward, .backward {
 	width:27px;
@@ -239,15 +231,15 @@ h6.border {
     font-size:1px;
     text-indent:-9999em;
 }
-.forward {background:url(ctg/images/forward.png) right center no-repeat;right:15px;}
-.forward:hover, .forward:active {background:url(ctg/images/forward_hover.png) right center no-repeat;}
-.backward {background:url(ctg/images/backward.png) left center no-repeat;left:15px;}
-.backward:hover, .backward:active { background:url(ctg/images/backward_hover.png) left center no-repeat; }
+.forward {background:url(../ctg/images/forward.png) right center no-repeat;right:15px;}
+.forward:hover, .forward:active {background:url(../ctg/images/forward_hover.png) right center no-repeat;}
+.backward {background:url(../ctg/images/backward.png) left center no-repeat;left:15px;}
+.backward:hover, .backward:active { background:url(../ctg/images/backward_hover.png) left center no-repeat; }
 .disabled {
     visibility:hidden !important;
 }
 .transp_forward {
-	background:url(ctg/images/transparence_forward.png) left top no-repeat;
+	background:url(../ctg/images/transparence_forward.png) left top no-repeat;
 	width:53px;
 	height:226px;
 	position:absolute;
@@ -264,7 +256,7 @@ h6.border {
 	float:left;
 	width:619px;
 	min-height:331px;
-	background:url(ctg/images/img_gaita.jpg) left 60px no-repeat;
+	background:url(../ctg/images/img_gaita.jpg) left 60px no-repeat;
 	padding-right:15px;
 }
 .conheca p {
@@ -316,16 +308,16 @@ h6.border {
     text-indent:-9999em;
 	cursor:pointer;
 }
-.forward2 {background:url(ctg/images/forward2.jpg) right center no-repeat;right:15px;}
-.forward2:hover, .forward2:active {background:url(ctg/images/forward_hover2.jpg) right center no-repeat;}
-.backward2 {background:url(ctg/images/backward2.jpg) left center no-repeat;left:15px;}
-.backward2:hover, .backward2:active { background:url(ctg/images/backward_hover2.jpg) left center no-repeat; }
+.forward2 {background:url(../ctg/images/forward2.jpg) right center no-repeat;right:15px;}
+.forward2:hover, .forward2:active {background:url(../ctg/images/forward_hover2.jpg) right center no-repeat;}
+.backward2 {background:url(../ctg/images/backward2.jpg) left center no-repeat;left:15px;}
+.backward2:hover, .backward2:active { background:url(../ctg/images/backward_hover2.jpg) left center no-repeat; }
 .disabled {
     visibility:hidden !important;
 }
 .divisor_index {
 	float:left;
-	background:url(ctg/images/divisor_index.jpg) left top no-repeat;
+	background:url(../ctg/images/divisor_index.jpg) left top no-repeat;
 	width:937px;
 	height:38px;
 	margin-top:5px;
@@ -387,7 +379,7 @@ h6.border {
 .footer {
 	clear:left;
 	height:230px;
-	background:#67523f url(ctg/images/bg_footer.jpg) top center no-repeat;
+	background:#67523f url(../ctg/images/bg_footer.jpg) top center no-repeat;
 }
 .map_footer {
 	float:left;
@@ -499,7 +491,7 @@ h6.border {
 	float:left;
 	width:104px;
 	height:44px;
-	background:url(ctg/images/bg_voltar.jpg) left top no-repeat;
+	background:url(../ctg/images/bg_voltar.jpg) left top no-repeat;
 	color:#fbfaf9;
 	font-size:13px;
 	line-height:44px;
@@ -516,7 +508,7 @@ h6.border {
 /**************************octg*********************************/
 .octg {
 	float:left;
-	background:url(ctg/images/img_gaita.jpg) right top no-repeat;
+	background:url(../ctg/images/img_gaita.jpg) right top no-repeat;
 	padding:0 334px 0 0;
 }
 .galeria_octg {
@@ -568,10 +560,10 @@ a.browse {
     cursor:pointer;
     font-size:1px;
 }
-a.right {background:url(ctg/images/forward.png) right center no-repeat; position:absolute; bottom:0; right:0;}
-a.right:hover, a.right:active {background:url(ctg/images/forward_hover.png) right center no-repeat;}
-a.left {background:url(ctg/images/backward.png) left center no-repeat; position:absolute; bottom:0; left:0;}
-a.left:hover, a.left:active {background:url(ctg/images/backward_hover.png) left center no-repeat;}
+a.right {background:url(../ctg/images/forward.png) right center no-repeat; position:absolute; bottom:0; right:0;}
+a.right:hover, a.right:active {background:url(../ctg/images/forward_hover.png) right center no-repeat;}
+a.left {background:url(../ctg/images/backward.png) left center no-repeat; position:absolute; bottom:0; left:0;}
+a.left:hover, a.left:active {background:url(../ctg/images/backward_hover.png) left center no-repeat;}
 a.disabled {
     visibility:hidden !important;
 }
@@ -584,7 +576,7 @@ a.disabled {
 	float:right;
 	width:263px;
 	min-height:420px;
-	background:url(ctg/images/bg_missao.jpg) left top no-repeat;
+	background:url(../ctg/images/bg_missao.jpg) left top no-repeat;
 	padding:15px;
 	margin-top:-180px;
 }
@@ -602,7 +594,7 @@ a.disabled {
 }
 .col_right {
 	float:right;
-	background:url(ctg/images/bg_missao.jpg) left top no-repeat;
+	background:url(../ctg/images/bg_missao.jpg) left top no-repeat;
 	width:238px;
 	padding:20px;
 }
@@ -620,7 +612,7 @@ a.disabled {
 	float:left;
 	width:94px;
 	height:59px;
-	background:url(ctg/images/bg_data_agenda.jpg) left top no-repeat;
+	background:url(../ctg/images/bg_data_agenda.jpg) left top no-repeat;
 	line-height:59px;
 	text-align:center;
 	font-size:22px;
@@ -641,7 +633,7 @@ a.disabled {
 .select_agenda_ano, .select_agenda_mes { 
 	width:192px;
 	height:43px;
-	background:url(ctg/images/bg_select_agenda.png) left top no-repeat;
+	background:url(../ctg/images/bg_select_agenda.png) left top no-repeat;
 	border:none;
 	font-size:14px;
 	color:#8a8a8a;
@@ -673,10 +665,10 @@ a.disabled {
 	padding:0 10px;
 }
 .contato form input.large_cont {
-	background:url(ctg/images/bg_field_large.jpg) left top no-repeat;
+	background:url(../ctg/images/bg_field_large.jpg) left top no-repeat;
 }
 .contato form input.small_cont {
-	background:url(ctg/images/bg_field_small.jpg) left top no-repeat;
+	background:url(../ctg/images/bg_field_small.jpg) left top no-repeat;
 	width:195px;
 	height:45px;
 	margin-right:14px;
@@ -685,7 +677,7 @@ a.disabled {
 	float:left;
 	width:424px;
 	height:95px;
-	background:url(ctg/images/bg_field_msg.jpg) left top no-repeat;
+	background:url(../ctg/images/bg_field_msg.jpg) left top no-repeat;
 	border:none;
 	font-family: 'Open Sans', sans-serif;
 	font-size:11px;
@@ -697,7 +689,7 @@ a.disabled {
 	float:right;
 	width:104px;
 	height:44px;
-	background:url(ctg/images/bg_voltar.jpg) left top no-repeat;
+	background:url(../ctg/images/bg_voltar.jpg) left top no-repeat;
 	color:#fbfaf9;
 	font-size:13px;
 	line-height:44px;

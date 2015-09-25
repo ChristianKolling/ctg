@@ -48,6 +48,7 @@ return array(
             'Site\Controller\GaleriaDeFotos' => 'Site\Controller\GaleriaDeFotosController',
             'Site\Controller\Agenda' => 'Site\Controller\AgendaController',
             'Site\Controller\Informativos' => 'Site\Controller\InformativosController',
+            'Site\Controller\OCtg' => 'Site\Controller\OCtgController',
         ]
     ],
     'view_manager' => array(
