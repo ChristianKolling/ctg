@@ -26,8 +26,6 @@ class AgendaController extends ActionController
     {
         $form = new Form($this->getObjectManager());
         
-        
-        
         return new ViewModel(array(
             'form' => $form
         ));
