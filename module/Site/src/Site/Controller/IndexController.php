@@ -9,6 +9,10 @@ class IndexController extends ActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+        $informativos = $this->getService('Admin\Service\Informativo')->fetchAll();
+        
+        return new ViewModel(array(
+            'informativos' => $informativos
+        ));
     }
 }

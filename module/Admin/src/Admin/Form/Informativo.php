@@ -12,6 +12,7 @@ class Informativo extends Form
         parent::__construct('informativo');
         $this->setAttribute('method', 'post');
         $this->setAttribute('action', '');
+        $this->setAttribute('enctype','multipart/form-data');
 
         $this->add(array(
             'name' => 'id',
@@ -71,6 +72,18 @@ class Informativo extends Form
                 'class' => 'form-control input-lg',
                 'id' => 'status',
             ),
+        ));
+
+        $this->add(array(
+            'type' => 'File',
+            'name' => 'img',
+            'options' => array(
+                'label' => 'Imagem'
+            ),
+            'attributes' => array(
+                'class' => 'form-control input-lg',
+                'id' => 'img'
+            )
         ));
 
         $this->add(array(

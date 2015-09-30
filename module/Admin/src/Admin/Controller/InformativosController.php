@@ -18,6 +18,7 @@ class InformativosController extends ActionController
         $paginator = new Paginator(new Adapter($collection));
         $paginator->setCurrentPageNumber($this->params()->fromQuery('page', 1))
                   ->setItemCountPerPage(10);
+        
         return new ViewModel(array(
             'informativos' => $paginator
         ));
@@ -29,8 +30,11 @@ class InformativosController extends ActionController
         $validacaoInformativo = new InformativoValidator();
         $request = $this->getRequest();
         if ($request->isPost()) {
+            $post = array_merge_recursive(
+                    $request->getPost()->toArray(), $request->getFiles()->toArray()
+            );
             $form->setInputFilter($validacaoInformativo->getInputFilter());
-            $form->setData($request->getPost());
+            $form->setData($post);
             if ($form->isValid()) {
                 $dados = $form->getData();
                 try {

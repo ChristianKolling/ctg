@@ -5,16 +5,16 @@ namespace Admin\Validator;
 use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilter;
 
-class Informativo 
-{
+class Informativo {
+
     protected $inputFilter;
- 
+
     public function getInputFilter() {
-        
+
         if (!$this->inputFilter) {
             $inputFilter = new InputFilter();
             $inputFactory = new InputFactory();
-            
+
             $inputFilter->add($inputFactory->createInput(
                             array(
                                 'name' => 'id',
@@ -25,7 +25,7 @@ class Informativo
                             )
                     )
             );
-            
+
             $inputFilter->add($inputFactory->createInput(array(
                         'name' => 'titulo',
                         'required' => true,
@@ -40,7 +40,7 @@ class Informativo
                             ),
                         ),
             )));
-           
+
             $inputFilter->add($inputFactory->createInput(array(
                         'name' => 'descricao',
                         'required' => true,
@@ -55,7 +55,33 @@ class Informativo
                             ),
                         ),
             )));
-            
+
+            $inputFilter->add(
+                    $inputFactory->createInput(array(
+                        'name' => 'img',
+                        'required' => true,
+                        'validators' => array(
+                            array(
+                                'name' => 'Zend\Validator\File\MimeType',
+                                'options' => array(
+                                    'mimeType' => 'image'
+                                )
+                            )
+                        ),
+                        'filters' => array(
+                            array(
+                                'name' => 'Zend\Filter\File\RenameUpload',
+                                'options' => array(
+                                    'target' => 'public/uploads',
+                                    'randomize' => true,
+                                    'use_upload_extension' => true,
+                                    'use_upload_name' => true
+                                )
+                            )
+                        )
+                    ))
+            );
+
             $inputFilter->add($inputFactory->createInput(array(
                         'name' => 'texto',
                         'required' => true,
@@ -70,7 +96,7 @@ class Informativo
                             ),
                         ),
             )));
-            
+
             $this->inputFilter = $inputFilter;
         }
         return $this->inputFilter;

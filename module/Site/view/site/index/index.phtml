@@ -29,36 +29,21 @@
                 </p>
             </div>
 
-
-
-
-
-
             <div class="programacao">
-
                 <h3 class="border">AGENDA DO MÊS</h3>
-
                 <a class="backward2"></a>
-
                 <div class="images2">
-
-
                     <div class="principal2">
                         <div class="text_banner">
                             Acampamento Farroupilha 2015 - <span>12/09</span>
                         </div>
                         <img src="wp-content/uploads/2015/08/banner_site_ctg-307x199.jpg" alt="Acampamento Farroupilha 2015"/>
                     </div>
-
-
-                </div><!--images-->
-
+                </div>
                 <a class="forward2"></a>
-
                 <div class="slidetabs2">
                     <a href="#"></a>
                 </div>
-
             </div>
 
             <div class="divisor_index"></div>
@@ -66,21 +51,25 @@
             <div class="informativo">
                 <h3 class="border">INFORMATIVO</h3>
 
-                <div class="item_informativo">
-                    <div class="img_informativo">
-                        <a href="informativo/patronagem-esteve-presente-na-reuniao-do-festival-2015/index.html" title="Patronagem esteve presente na Reunião do FRCG Festival 2015"><img src="wp-content/uploads/2015/02/DSC_9982-174x103.jpg" alt="Patronagem esteve presente na Reunião do FRCG Festival 2015"/></a>
+                <?php foreach ($informativos as $item): ?>
+                    <div class="item_informativo">
+                        <div class="img_informativo">
+                            <a href="/site/informativos/ver/id/<?php echo $item['id']; ?>" title="<?php echo $item['titulo']; ?>"><img src="<?php echo $item['img']; ?>" alt="<?php echo $item['titulo']; ?>"/></a>
+                        </div>
+                        <div class="info_informativo">
+                            <span style="font-size:11px;"><?php echo $item['cadastro']->format('d-m-Y'); ?></span>
+                            <h5><a href=""><?php echo $item['titulo']; ?></a></h5>
+                            <p><a href="<?php ?>"> <?php echo $item['descinf']; ?> </a></p>
+                        </div>
                     </div>
-                    <div class="info_informativo">
-                        <h5><a href="informativo/patronagem-esteve-presente-na-reuniao-do-festival-2015/index.html">Patronagem esteve presente na Reunião do FRCG Festival 2015</a></h5>
-                        <p><a href="informativo/patronagem-esteve-presente-na-reuniao-do-festival-2015/index.html">Reunião Festival 2015</a></p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+
             </div>
 
             <div class="galeria_index">
                 <h3 class="border">GALERIA DE FOTOS</h3>
                 <div class="eng_fotos_galeria">
-                
+
                 </div>
             </div>
         </div><!--content_index-->

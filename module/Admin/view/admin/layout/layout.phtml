@@ -21,8 +21,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <?php
         echo $this->headScript()
-                ->prependFile($this->basePath('plugins/jquery.validate.js'))
+                ->prependFile($this->basePath('js/bootstrap-filestyle.js'))
                 ->prependFile($this->basePath('plugins/jquery.plainoverlay.js'))
+                ->prependFile($this->basePath('plugins/jquery.validate.js'))
                 ->prependFile($this->basePath('js/main.js'))
                 ->prependFile($this->basePath('dist/js/app.min.js'))
                 ->prependFile($this->basePath('dist/js/demo.js'))

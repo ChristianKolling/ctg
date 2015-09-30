@@ -37,17 +37,17 @@ class Informativo
     protected $texto;
     
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      *
      */
     protected $cadastro;
     
     /**
-     * @ORM\Column(type="date", nullable=true)
-     *
+     * @ORM\Column(type="string", length=500)
+     * 
      */
-    protected $alteracao;
-        
+    protected $img;
+
     /**
      * @ORM\ManyToOne(targetEntity="Status")
      * @ORM\JoinColumn(name="status", referencedColumnName="id")
@@ -75,8 +75,8 @@ class Informativo
         return $this->cadastro;
     }
 
-    function getAlteracao() {
-        return $this->alteracao;
+    function getImg() {
+        return $this->img;
     }
 
     function getStatus() {
@@ -103,13 +103,12 @@ class Informativo
         $this->cadastro = $cadastro;
     }
 
-    function setAlteracao($alteracao) {
-        $this->alteracao = $alteracao;
+    function setImg($img) {
+        $this->img = $img;
     }
 
     function setStatus($status) {
         $this->status = $status;
     }
-
 
 }

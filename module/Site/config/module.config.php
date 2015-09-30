@@ -16,7 +16,7 @@ return array(
             'site' => array(
                 'type' => 'Literal',
                 'options' => array(
-                    'route' => '/site',
+                    'route' => '/',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Site\Controller',
                         'controller' => 'Index',
