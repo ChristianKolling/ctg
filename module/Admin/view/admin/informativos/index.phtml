@@ -1,3 +1,5 @@
+<div id="dialog-confirm" title="Deseja realmente excluir este registro?">
+</div>
 <section class="content-header">
     <h1>
         Informativos
@@ -40,7 +42,6 @@
                             <th>Texto</th>
                             <th>Data de Cadastro</th>
                             <th>Status</th>
-                            <th>Imagem</th>
                         </tr>
                         </thead>
                         <?php foreach ($informativos as $inf): ?>
@@ -60,23 +61,52 @@
                                     </td>
                                 <?php endif; ?>
                                 <td>
-                                    <a class="glyphicon glyphicon-camera" title="Visualizar Imagem"></a>
-                                </td>
-                                <td>
-                                    <a class="glyphicon glyphicon-edit" href="/admin/informativos/editar/id/<?php echo $inf['id']; ?>" title="Editar"></a>
-                                    <a class="glyphicon glyphicon-trash" href="/admin/informativos/deletar/id/<?php echo $inf['id']; ?>" title="Excluir"></a>
+                                    <a class="glyphicon glyphicon-edit" href="/admin/informativos/editar/id/<?php echo $inf['id']; ?>"></a>
+                                    <a class="glyphicon glyphicon-trash excluir" id="<?php echo $inf['id']; ?>" href="#" ></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     </table>
-          
-                <div class="row col-md-6">
-                <?php
-                echo $this->paginationControl($informativos, 'Sliding', 'partials/paginator.phtml');
-                ?>
-                </div>
+
+                    <div class="row col-md-6">
+                        <?php
+                        echo $this->paginationControl($informativos, 'Sliding', 'partials/paginator.phtml');
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script>
+    $(document).ready(function () {
+        $(".excluir").click(function () {
+
+            $(function () {
+                $("#dialog-confirm").dialog({
+                    resizable: false,
+                    height: 140,
+                    width: 400,
+                    modal: true,
+                    show: {
+                        effect: "blind",
+                        duration: 1000
+                    },
+                    hide: {
+                        effect: "explode",
+                        duration: 1000
+                    },
+                    buttons: {
+                        "Sim": function () {
+                            
+                        },
+                        Cancelar: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+            });
+
+        });
+    });
+</script>

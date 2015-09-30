@@ -30,11 +30,10 @@ class InformativosController extends ActionController
         $validacaoInformativo = new InformativoValidator();
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $post = array_merge_recursive(
-                    $request->getPost()->toArray(), $request->getFiles()->toArray()
-            );
             $form->setInputFilter($validacaoInformativo->getInputFilter());
-            $form->setData($post);
+            $form->setData(array_merge_recursive(
+                $this->getRequest()->getPost()->toArray(), 
+                $this->getRequest()->getFiles()->toArray()));
             if ($form->isValid()) {
                 $dados = $form->getData();
                 try {

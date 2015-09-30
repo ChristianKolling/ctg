@@ -19,6 +19,8 @@
         ?>
         <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
         <?php
         echo $this->headScript()
                 ->prependFile($this->basePath('js/bootstrap-filestyle.js'))
@@ -33,7 +35,8 @@
                 ->prependFile($this->basePath('js/html5shiv.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
         ;
         ?>
-        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     </head>
     <body class="skin-blue sidebar-mini">
         <div class="wrapper">
@@ -120,9 +123,9 @@
                         </div>
                     <?php } ?>
                 </div>
-                
+
                 <?php echo $this->content; ?>
-            
+
             </div>
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">

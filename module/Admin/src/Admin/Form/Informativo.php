@@ -11,9 +11,8 @@ class Informativo extends Form
     {
         parent::__construct('informativo');
         $this->setAttribute('method', 'post');
-        $this->setAttribute('action', '');
         $this->setAttribute('enctype','multipart/form-data');
-
+        
         $this->add(array(
             'name' => 'id',
             'type' => 'Hidden',
@@ -67,6 +66,7 @@ class Informativo extends Form
                 'object_manager' => $em,
                 'target_class' => 'Admin\Model\Status',
                 'property' => 'descricao',
+                'disable_inarray_validator' => true,
             ),
             'attributes' => array(
                 'class' => 'form-control input-lg',
@@ -75,15 +75,15 @@ class Informativo extends Form
         ));
 
         $this->add(array(
-            'type' => 'File',
-            'name' => 'img',
+            'name' => 'imagem',
             'options' => array(
-                'label' => 'Imagem'
+                'label' => ' ',
             ),
+            'type' => 'file',
             'attributes' => array(
                 'class' => 'form-control input-lg',
-                'id' => 'img'
-            )
+                'id' => 'imagem',
+            ),
         ));
 
         $this->add(array(

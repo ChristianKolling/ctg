@@ -54,7 +54,9 @@
                 <?php foreach ($informativos as $item): ?>
                     <div class="item_informativo">
                         <div class="img_informativo">
-                            <a href="/site/informativos/ver/id/<?php echo $item['id']; ?>" title="<?php echo $item['titulo']; ?>"><img src="<?php echo $item['img']; ?>" alt="<?php echo $item['titulo']; ?>"/></a>
+                            <a href="/site/informativos/ver/id/<?php echo $item['id']; ?>" title="<?php echo $item['titulo']; ?>">
+                                <img src="<?php echo $item['imagem']; ?>" alt="<?php echo $item['titulo']; ?>"/>
+                            </a>
                         </div>
                         <div class="info_informativo">
                             <span style="font-size:11px;"><?php echo $item['cadastro']->format('d-m-Y'); ?></span>

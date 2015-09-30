@@ -41,13 +41,7 @@ class Informativo
      *
      */
     protected $cadastro;
-    
-    /**
-     * @ORM\Column(type="string", length=500)
-     * 
-     */
-    protected $img;
-
+   
     /**
      * @ORM\ManyToOne(targetEntity="Status")
      * @ORM\JoinColumn(name="status", referencedColumnName="id")
@@ -55,6 +49,11 @@ class Informativo
      */
     protected $status;    
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $imagem;
+    
     function getId() {
         return $this->id;
     }
@@ -75,12 +74,12 @@ class Informativo
         return $this->cadastro;
     }
 
-    function getImg() {
-        return $this->img;
-    }
-
     function getStatus() {
         return $this->status;
+    }
+
+    function getImagem() {
+        return $this->imagem;
     }
 
     function setId($id) {
@@ -103,12 +102,12 @@ class Informativo
         $this->cadastro = $cadastro;
     }
 
-    function setImg($img) {
-        $this->img = $img;
-    }
-
     function setStatus($status) {
         $this->status = $status;
+    }
+
+    function setImagem($imagem) {
+        $this->imagem = $imagem;
     }
 
 }

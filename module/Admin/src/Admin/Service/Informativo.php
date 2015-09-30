@@ -10,7 +10,9 @@ class Informativo extends Service
     public function fetchAll()
     {
         $select = $this->getObjectManager()->createQueryBuilder()
-                ->select('Inf.id','Inf.titulo','Inf.descricao as descinf','Inf.texto','Inf.cadastro', 'Status.descricao', 'Status.id as status', 'Inf.img')
+                ->select('Inf.id','Inf.titulo','Inf.descricao as descinf',
+                'Inf.texto','Inf.cadastro', 'Status.descricao', 
+                'Status.id as status','Inf.imagem')
                 ->from('Admin\Model\Informativo','Inf')
                 ->join('Inf.status','Status');
         return $select->getQuery()->getResult();
@@ -28,7 +30,7 @@ class Informativo extends Service
         $informativo->setStatus($this->getObjectManager()->find('Admin\Model\Status',$values['status']));
         $informativo->setDescricao($values['descricao']);
         $informativo->setCadastro(new \DateTime('now'));
-        $informativo->setImg($values['img']['tmp_name']);
+        $informativo->setImagem(str_replace('public/', '', $values['imagem']['tmp_name']));
         $this->getObjectManager()->persist($informativo);
         try {
             $this->getObjectManager()->flush();
