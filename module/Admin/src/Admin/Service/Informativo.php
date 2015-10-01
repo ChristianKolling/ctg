@@ -7,14 +7,16 @@ use Admin\Model\Informativo as Model;
 
 class Informativo extends Service
 {
-    public function fetchAll()
+    public function fetchAll($search = null)
     {
         $select = $this->getObjectManager()->createQueryBuilder()
                 ->select('Inf.id','Inf.titulo','Inf.descricao as descinf',
                 'Inf.texto','Inf.cadastro', 'Status.descricao', 
-                'Status.id as status','Inf.imagem')
+                'Status.id as status','Inf.imagem','Inf.extensao')
                 ->from('Admin\Model\Informativo','Inf')
-                ->join('Inf.status','Status');
+                ->join('Inf.status','Status')
+                ->where('Inf.titulo LIKE ?1 OR Inf.descricao LIKE ?1 OR Inf.texto LIKE ?1')
+                ->setParameter(1,"%" . $search['search'] . "%");;;
         return $select->getQuery()->getResult();
     }
 
@@ -25,12 +27,14 @@ class Informativo extends Service
         } else {
             $informativo = new Model();
         }
+        $imagem = explode('.',$values['imagem']['tmp_name']);
         $informativo->setTitulo($values['titulo']);
         $informativo->setTexto($values['texto']);
         $informativo->setStatus($this->getObjectManager()->find('Admin\Model\Status',$values['status']));
         $informativo->setDescricao($values['descricao']);
         $informativo->setCadastro(new \DateTime('now'));
-        $informativo->setImagem(str_replace('public/', '', $values['imagem']['tmp_name']));
+        $informativo->setImagem(str_replace('public', '', $imagem[0]));
+        $informativo->setExtensao($imagem[1]);
         $this->getObjectManager()->persist($informativo);
         try {
             $this->getObjectManager()->flush();

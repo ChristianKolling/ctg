@@ -54,6 +54,11 @@ class Informativo
      */
     protected $imagem;
     
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $extensao;
+    
     function getId() {
         return $this->id;
     }
@@ -80,6 +85,10 @@ class Informativo
 
     function getImagem() {
         return $this->imagem;
+    }
+
+    function getExtensao() {
+        return $this->extensao;
     }
 
     function setId($id) {
@@ -109,5 +118,10 @@ class Informativo
     function setImagem($imagem) {
         $this->imagem = $imagem;
     }
+
+    function setExtensao($extensao) {
+        $this->extensao = $extensao;
+    }
+
 
 }

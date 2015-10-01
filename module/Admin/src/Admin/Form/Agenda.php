@@ -6,7 +6,6 @@ use Zend\Form\Form as Form;
 
 class Agenda extends Form 
 {
-
     public function __construct($em) 
     {
         parent::__construct('agenda');
@@ -55,7 +54,7 @@ class Agenda extends Form
                 'class' => 'form-control input-lg',
             ),
         ));
-        
+
         $this->add(array(
             'name' => 'horario',
             'type' => 'Text',
@@ -78,6 +77,7 @@ class Agenda extends Form
                 'object_manager' => $em,
                 'target_class' => 'Admin\Model\Status',
                 'property' => 'descricao',
+                'disable_inarray_validator' => true,
             ),
             'attributes' => array(
                 'class' => 'form-control input-lg',

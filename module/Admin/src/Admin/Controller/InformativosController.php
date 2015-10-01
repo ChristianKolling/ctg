@@ -9,18 +9,28 @@ use DoctrineModule\Paginator\Adapter\Collection as Adapter;
 use Zend\View\Model\ViewModel;
 use Admin\Form\Informativo as Form;
 use Admin\Validator\Informativo as InformativoValidator;
+use Core\Form\Busca as BuscaForm;
 
 class InformativosController extends ActionController
 {
     public function indexAction()
-    {
-        $collection = new ArrayCollection($this->getService('Admin\Service\Informativo')->fetchAll());
+    {   
+        $form = new BuscaForm('Ṕesquise pelo título, descrição, ou texto');
+        if ($this->getRequest()->isPost()) {
+            $search = $this->getRequest()->getPost();
+            $form->setData($search);
+            if ($form->isValid()) {
+                $values = $form->getData();
+            }
+        }
+        $collection = new ArrayCollection($this->getService('Admin\Service\Informativo')->fetchAll($values));
         $paginator = new Paginator(new Adapter($collection));
         $paginator->setCurrentPageNumber($this->params()->fromQuery('page', 1))
                   ->setItemCountPerPage(10);
         
         return new ViewModel(array(
-            'informativos' => $paginator
+            'informativos' => $paginator,
+            'form' => $form
         ));
     }
     
@@ -84,16 +94,14 @@ class InformativosController extends ActionController
     public function deletarAction()
     {
         if($this->getRequest()->isPost()){
-            $id = $this->getRequest()->getPost()['id'];
-            if($id > 0){
-            try {
-                $this->getService('Admin\Service\Informativo')->delete($id);
-                $this->flashMessenger()->addSuccessMessage('Informativo deletado com Sucesso.');   
-            } catch (\Exception $ex) {
-                $this->flashMessenger()->addErrorMessage('O Informativo não pode ser deletado.');
+            $id = (int) $this->getRequest()->getPost()['id'];
+            if ($id > 0) {
+                try {
+                    $this->getService('Admin\Service\Informativo')->delete($id);
+                } catch (\Exception $ex) {
+                    throw new Exception('Falha ao excluir registro');
+                }
             }
-        }
-        $this->redirect()->toUrl('/admin/informativos');
         }
     }
 }

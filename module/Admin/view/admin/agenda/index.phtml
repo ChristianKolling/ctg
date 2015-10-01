@@ -1,3 +1,5 @@
+<div id="dialog-confirm" title="Deseja realmente excluir este registro?">
+</div>
 <section class="content-header">
     <h1>
         Agenda
@@ -22,32 +24,31 @@
                             </div>
 
                             <div class="col-md-6">
+                                <?php echo $this->form()->openTag($form); ?>
                                 <div id="custom-search-input">
                                     <div class="input-group">
-                                        <input type="text" class="form-control input-sm" placeholder="Buscar" />
+                                        <?php echo $this->formRow($form->get('search')); ?> 
                                         <span class="input-group-btn">
-                                            <button class="btn btn-info btn-sm" type="button">
+                                            <button class="btn btn-info btn-sm" type="submit">
                                                 <i class="glyphicon glyphicon-search"></i>
                                             </button>
                                         </span>
                                     </div>
                                 </div>
+                                <?php echo $this->form()->closeTag($form); ?>
                             </div>
                         </div>
 
                         <tr>
-                            <th>ID</th>
                             <th>Nome do Evento</th>
                             <th>Local</th>
                             <th>Horário</th>
                             <th>Data de Realização</th>
                             <th>Status</th>
-                            <th>Imagem</th>
                         </tr>
                         </thead>
                         <?php foreach ($agenda as $inf): ?>
-                            <tr>
-                                <td><?php echo $inf['id']; ?> </td>
+                            <tr data-referencia="<?= $inf['id']; ?>">
                                 <td><?php echo $inf['evento']; ?> </td>
                                 <td><?php echo $inf['local']; ?> </td>
                                 <td><?php echo $inf['horario']; ?></td>
@@ -63,11 +64,8 @@
                                     </td>
                                 <?php endif; ?>
                                 <td>
-                                    <a class="glyphicon glyphicon-camera" title="Visualizar Imagem"></a>
-                                </td>
-                                <td>
-                                    <a class="glyphicon glyphicon-edit" href="/admin/agenda/editar/id/<?php echo $inf['id']; ?>" title="Editar"></a>
-                                    <a class="glyphicon glyphicon-trash" href="/admin/agenda/deletar/id/<?php echo $inf['id']; ?>" title="Excluir"></a>
+                                    <a class="glyphicon glyphicon-edit" href="/admin/agenda/editar/id/<?php echo $inf['id']; ?>"></a>
+                                    <a class="glyphicon glyphicon-trash excluir-agenda" id="<?= $inf['id']; ?>" href="#"></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
