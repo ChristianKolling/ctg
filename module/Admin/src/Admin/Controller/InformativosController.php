@@ -83,9 +83,9 @@ class InformativosController extends ActionController
     
     public function deletarAction()
     {
-        $id = (int) $this->params()->fromRoute('id',0);
-        
-        if($id > 0){
+        if($this->getRequest()->isPost()){
+            $id = $this->getRequest()->getPost()['id'];
+            if($id > 0){
             try {
                 $this->getService('Admin\Service\Informativo')->delete($id);
                 $this->flashMessenger()->addSuccessMessage('Informativo deletado com Sucesso.');   
@@ -94,5 +94,6 @@ class InformativosController extends ActionController
             }
         }
         $this->redirect()->toUrl('/admin/informativos');
+        }
     }
 }

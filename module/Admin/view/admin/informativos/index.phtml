@@ -45,7 +45,7 @@
                         </tr>
                         </thead>
                         <?php foreach ($informativos as $inf): ?>
-                            <tr>
+                            <tr data-referencia="<?= $inf['id']; ?>">
                                 <td><?php echo $inf['titulo']; ?> </td>
                                 <td><?php echo $inf['descinf']; ?> </td>
                                 <td><?php echo $inf['texto']; ?></td>
@@ -62,7 +62,7 @@
                                 <?php endif; ?>
                                 <td>
                                     <a class="glyphicon glyphicon-edit" href="/admin/informativos/editar/id/<?php echo $inf['id']; ?>"></a>
-                                    <a class="glyphicon glyphicon-trash excluir" id="<?php echo $inf['id']; ?>" href="#" ></a>
+                                    <a class="glyphicon glyphicon-trash excluir" id="<?= $inf['id']; ?>" href="#" ></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -81,7 +81,7 @@
 <script>
     $(document).ready(function () {
         $(".excluir").click(function () {
-
+            var id = $(this).attr('id');
             $(function () {
                 $("#dialog-confirm").dialog({
                     resizable: false,
@@ -98,7 +98,21 @@
                     },
                     buttons: {
                         "Sim": function () {
-                            
+                            $.ajax({
+                                type: 'POST',
+                                url: '/admin/informativos/deletar',
+                                data: {
+                                    'id': id
+                                },
+                                success: function (response) {
+                                    $('body').plainOverlay('hide');
+                                    $('#dialog-confirm').dialog("close");
+                                    $("[data-referencia='"+id+"']").remove();
+                                },
+                                beforeSend: function (xhr) {
+                                    $('body').plainOverlay('show');
+                                }
+                            });
                         },
                         Cancelar: function () {
                             $(this).dialog("close");
