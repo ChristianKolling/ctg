@@ -52,6 +52,8 @@ class Informativo extends Service
         $form->get('descricao')->setValue($informativo->getDescricao());
         $form->get('texto')->setValue($informativo->getTexto());
         $form->get('status')->setValue($informativo->getStatus());
+        $form->get('imagem')->setValue($informativo->getImagem().'.'.$informativo->getExtensao());
+        
         return $form;
     }
     

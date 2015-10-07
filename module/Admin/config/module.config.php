@@ -54,13 +54,15 @@ return array(
         'invokables' => array(
             'Admin\Service\Informativo' => 'Admin\Service\Informativo',
             'Admin\Service\Agenda' => 'Admin\Service\Agenda',
+            'Admin\Service\Banner' => 'Admin\Service\Banner',
         ),
     ),
     'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
             'Admin\Controller\Informativos' => 'Admin\Controller\InformativosController',
-            'Admin\Controller\Agenda' => 'Admin\Controller\AgendaController'
+            'Admin\Controller\Agenda' => 'Admin\Controller\AgendaController',
+            'Admin\Controller\Banners' => 'Admin\Controller\BannersController'
         ),
     ),
     'doctrine' => array(

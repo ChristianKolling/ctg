@@ -12,4 +12,15 @@ class InformativosController extends ActionController
         
         return new ViewModel();
     }
+    
+    public function verAction()
+    {
+        $id = (int) $this->params()->fromRoute('id',0);
+        $inf = $this->getObjectManager()->getRepository('Admin\Model\Informativo')
+                ->findOneBy(array('id' => $id));
+        
+        return new ViewModel(array(
+            'inf' => $inf
+        ));
+    }
 }

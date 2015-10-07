@@ -1,0 +1,24 @@
+<div class="content">
+    <div class="title_breadcrumb">
+        <div class="title_int">
+            <h2>INFORMATIVOS</h2>
+        </div>
+        <div class="breadcrumb">
+            <a href="/site">Página inicial</a> &raquo; 
+            <a href="/site/informativos">Informativos</a> &raquo; <?php echo $inf->getTitulo(); ?> </div>
+    </div>
+    <div class="eng_background_int">
+        <div class="desc_informativo">
+            
+            <span style="font-size:11px;"><?php echo $inf->getCadastro()->format('d-m-Y');?></span>
+            <h4><?php echo $inf->getTitulo(); ?></h4>
+            
+            <div class="info_desc">
+                <a href="<?php echo $inf->getImagem() . "." . $inf->getExtensao()?>" title="<?php echo $inf->getTitulo(); ?>" rel="prettyPhoto[gallery]">
+                    <img src="<?php echo $inf->getImagem() . "." . $inf->getExtensao()?>" alt="<?php echo $inf->getTitulo(); ?>"/>
+                </a>
+                <p><?php echo $inf->getTexto(); ?></p>
+            </div>
+        </div>
+    </div>
+</div>
