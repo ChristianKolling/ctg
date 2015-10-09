@@ -1,0 +1,30 @@
+<?php echo $this->doctype(); ?>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('-|CTG|- POTRO SEM DONO '); ?>
+
+        <?php
+        echo $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                ->prependStylesheet($this->basePath('css/bootstrap.css'))
+                ->prependStylesheet($this->basePath('css/auth.css'))
+        ?>
+        <?php
+        echo $this->headScript()
+                ->prependFile($this->basePath('js/jquery.min.js'))
+        ;
+        ?>
+    </head>
+    <body class="corpo">
+        <div class="container">
+            <?php echo $this->content; ?>
+        </div>
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

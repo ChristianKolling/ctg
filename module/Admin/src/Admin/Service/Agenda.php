@@ -45,7 +45,7 @@ class Agenda extends Service
         $form->get('id')->setValue($agenda->getId());
         $form->get('nome-evento')->setValue($agenda->getEvento());
         $form->get('local')->setValue($agenda->getLocal());
-        $form->get('data')->setValue($agenda->getData()->format('Y-m-d'));
+        $form->get('data')->setValue($agenda->getData()->format('d-m-Y'));
         $form->get('horario')->setValue($agenda->getHorario());
         $form->get('status')->setValue($agenda->getStatus());
         return $form;

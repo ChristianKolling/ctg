@@ -37,7 +37,7 @@ class Agenda
     protected $horario;
     
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      *
      */
     protected $data;

@@ -1,3 +1,5 @@
+AddHandler php55-script .php
+suPHP_ConfigPath /home/SeuLoginDeFTP/
 RewriteEngine On
 # The following rule tells Apache that if the requested filename
 # exists, simply serve it.
