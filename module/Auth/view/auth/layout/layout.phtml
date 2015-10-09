@@ -23,6 +23,31 @@
     </head>
     <body class="corpo">
         <div class="container">
+            
+            <div class="col-sm-12 col-md-12">
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        ×</button>
+                    <span class="glyphicon glyphicon-hand-right"></span> <strong>Mensagem de Erro</strong>
+                    <hr class="message-inner-separator">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-sm-12 col-md-12">
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        ×</button>
+                    <span class="glyphicon glyphicon-ok"></span> <strong>Mensagem de Sucesso</strong>
+                    <hr class="message-inner-separator">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            
             <?php echo $this->content; ?>
         </div>
         <?php echo $this->inlineScript() ?>
