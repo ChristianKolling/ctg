@@ -4,22 +4,33 @@
             <a class="backward"></a>
 
             <div class="images">
-                <div class="principal">
-                    <div class="text_banner">
-                        <h1><a href="informativo/abertura-da-semana-farroupilha-2015/index.html" title="Abertura da Semana Farroupilha 2015">Abertura da Semana Farroupilha 2015</a></h1>
-                        <p><a href="informativo/abertura-da-semana-farroupilha-2015/index.html" title="Abertura da Semana Farroupilha 2015">Abertura da Semana Farroupilha 2015</a></p>
-                        <!--<p><strong>CONFIRA A PROGRAMAÇÃO</strong></p>-->
+                <?php foreach ($banner as $opt): ?>
+                    <div class="principal">
+                        <div class="text_banner">
+                            <h1>
+                                <a href="/bannerss/ver/id/<?php echo $opt['id']; ?>" 
+                                   title="<?php echo $opt['titulo']; ?>"><?php echo $opt['titulo']; ?></a>
+                            </h1>
+                            <p>
+                                <a href="/banners/ver/id/<?php echo $opt['id']; ?>" 
+                                   title="<?php echo $opt['descbanner']; ?>"><?php echo $opt['descbanner']; ?></a>
+                            </p>
+                        </div>
+                        <a href="/banners/ver/id/<?php echo $opt['id']; ?>" 
+                           title="<?php echo $opt['titulo']; ?>">
+                            <img width="500px" height="362px" src="<?php echo $opt['imagem'] . "." . $opt['extensao']; ?>" 
+                                 alt="<?php echo $opt['titulo']; ?>"/>
+                        </a>
                     </div>
-                    <a href="" title="">
-                        <img src="" alt=""/>
-                    </a>
-                </div>
+                <?php endforeach; ?>
             </div>
 
             <div class="transp_forward"></div>
             <a class="forward"></a>
             <div class="slidetabs">
-                <a href="#"></a>
+                <?php foreach ($banner as $opt): ?>
+                    <a href="#"></a>
+                <?php endforeach; ?>
             </div>
 
         </div>
@@ -36,24 +47,26 @@
             <div class="programacao">
                 <h3 class="border">AGENDA DO MÊS</h3>
                 <a class="backward2"></a>
-                
-                <?php foreach ($agenda as $dado):?>
-                <div class="images2">
-                    <div class="principal2">
-                        <div class="text_banner">
-                            <?php echo $dado['evento']; ?> <span><?php echo $dado['data']->format('d-m-Y'); ?></span>
+
+                <?php foreach ($agenda as $dado): ?>
+                    <div class="images2">
+                        <div class="principal2">
+                            <div class="text_banner">
+                                <?php echo $dado['evento']; ?> <span><?php echo $dado['data']->format('d-m-Y'); ?></span>
+                            </div>
+                            <img width="307px" height="199px" src="<?php echo $dado['imagem'] . "." . $dado['extensao']; ?>" alt="<?php echo $dado['evento']; ?>"/>
                         </div>
-                        <img src="" alt=""/>
                     </div>
-                </div>
                 <?php endforeach; ?>
-                
+
                 <a class="forward2"></a>
-            
+
                 <div class="slidetabs2">
-                    <a href="#"></a>
+                    <?php foreach ($agenda as $dado): ?>
+                        <a href="#"></a>
+                    <?php endforeach; ?>
                 </div>
-            
+
             </div>
 
             <div class="divisor_index"></div>
@@ -63,14 +76,14 @@
                 <?php foreach ($informativos as $item): ?>
                     <div class="item_informativo">
                         <div class="img_informativo">
-                            <a href="/site/informativos/ver/id/<?php echo $item['id']; ?>" title="<?php echo $item['titulo']; ?>">
-                                <img src="<?php echo $item['imagem'].".".$item['extensao']; ?>" height="103" width="174" alt="<?php echo $item['titulo']; ?>"/>
+                            <a href="/informativos/ver/id/<?php echo $item['id']; ?>" title="<?php echo $item['titulo']; ?>">
+                                <img src="<?php echo $item['imagem'] . "." . $item['extensao']; ?>" height="103" width="174" alt="<?php echo $item['titulo']; ?>"/>
                             </a>
                         </div>
                         <div class="info_informativo">
                             <span style="font-size:11px;"><?php echo $item['cadastro']->format('d-m-Y'); ?></span>
-                            <h5><a href="/site/informativos/ver/id/<?php echo $item['id']; ?>"><?php echo $item['titulo']; ?></a></h5>
-                            <p><a href="/site/informativos/ver/id/<?php echo $item['id']; ?>"> <?php echo $item['descinf']; ?> </a></p>
+                            <h5><a href="/informativos/ver/id/<?php echo $item['id']; ?>"><?php echo $item['titulo']; ?></a></h5>
+                            <p><a href="/informativos/ver/id/<?php echo $item['id']; ?>"> <?php echo $item['descinf']; ?> </a></p>
                         </div>
                     </div>
                 <?php endforeach; ?>

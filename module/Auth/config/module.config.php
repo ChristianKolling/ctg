@@ -8,7 +8,7 @@ return array(
                 'options' => array(
                     'route' => '/auth',
                     'defaults' => array(
-                        'controller' => 'Auth\Controller\Usuario',
+                        'controller' => 'Auth\Controller\Index',
                         'action' => 'index',
                     ),
                 ),
@@ -19,7 +19,7 @@ return array(
                     'route' => '/auth',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Auth\Controller',
-                        'controller' => 'Usuario',
+                        'controller' => 'Index',
                         'action' => 'index',
                     ),
                 ),
@@ -46,16 +46,44 @@ return array(
             ),
         ),
     ),
-    'controllers' => [
-        'invokables' => [
-            'Auth\Controller\Usuario' => 'Auth\Controller\UsuarioController',
-        ]
-    ],
+    'service_manager' => array(
+        'abstract_factories' => array(
+            'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
+            'Zend\Log\LoggerAbstractServiceFactory',
+        ),
+        'invokables' => array(
+            'Auth\Service\Index' => 'Auth\Service\Index',
+        ),
+        'factories' => array(
+            'Session' => function ($sm) {
+                return new Zend\Session\Container('SessionAdmin');
+            },
+        )
+    ),
+    'controllers' => array(
+        'invokables' => array(
+            'Auth\Controller\Index' => 'Auth\Controller\IndexController',
+            'Auth\Controller\EsqueceuSuaSenha' => 'Auth\Controller\EsqueceuSuaSenhaController',
+        ),
+    ),
+    'doctrine' => array(
+        'driver' => array(
+            'application_entities' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(__DIR__ . '/../src/Auth/Model')
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Auth\Model' => 'application_entities'
+                )
+            ))),
     'view_manager' => array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),
     ),
+    // Placeholder for console routes
     'console' => array(
         'router' => array(
             'routes' => array(

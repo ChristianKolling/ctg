@@ -4,13 +4,13 @@ namespace Admin\Form;
 
 use Zend\Form\Form as Form;
 
-class Agenda extends Form 
-{
-    public function __construct($em) 
-    {
+class Agenda extends Form {
+
+    public function __construct($em) {
         parent::__construct('agenda');
         $this->setAttribute('method', 'post');
         $this->setAttribute('action', '');
+        $this->setAttribute('enctype', 'multipart/form-data');
 
         $this->add(array(
             'name' => 'id',
@@ -84,6 +84,19 @@ class Agenda extends Form
                 'id' => 'status',
             ),
         ));
+
+        $this->add(array(
+            'name' => 'imagem',
+            'options' => array(
+                'label' => 'Imagem em Anexo',
+            ),
+            'type' => 'file',
+            'attributes' => array(
+                'class' => 'form-control input-lg',
+                'id' => 'imagem',
+            ),
+        ));
+
 
         $this->add(array(
             'name' => 'salvar',

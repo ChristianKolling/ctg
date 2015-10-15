@@ -49,6 +49,17 @@ class Agenda
      */
     protected $status;    
     
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $imagem;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $extensao;
+
+    
     function getId() {
         return $this->id;
     }
@@ -95,6 +106,22 @@ class Agenda
 
     function setStatus($status) {
         $this->status = $status;
+    }
+
+    function getImagem() {
+        return $this->imagem;
+    }
+
+    function getExtensao() {
+        return $this->extensao;
+    }
+
+    function setImagem($imagem) {
+        $this->imagem = $imagem;
+    }
+
+    function setExtensao($extensao) {
+        $this->extensao = $extensao;
     }
 
 

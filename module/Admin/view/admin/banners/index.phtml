@@ -1,8 +1,80 @@
-<?php
+<div id="dialog-confirm" title="Deseja realmente excluir este registro?">
+</div>
+<section class="content-header">
+    <h1>
+        Banners
+        <small>Acompanhe aqui os seus Banners</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="/admin/banners">Banners</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <table class="table table-striped custab" id="table-produtos">
+                        <thead>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="/admin/banners/novo" class="btn btn-primary btn-sm pull-left"><b>+</b> Add novo Banner</a>
+                            </div>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+                            <div class="col-md-6">
+                                <?php echo $this->form()->openTag($form); ?>
+                                <div id="custom-search-input">
+                                    <div class="input-group">
+                                        <?php echo $this->formRow($form->get('search')); ?> 
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-info btn-sm" type="submit">
+                                                <i class="glyphicon glyphicon-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <?php echo $this->form()->closeTag($form); ?>
+                            </div>
 
+                        </div>
+                        <tr>
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Texto</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <?php foreach ($banners as $inf): ?>
+                            <tr data-referencia="<?= $inf['id']; ?>">
+                                <td><?php echo $inf['titulo']; ?> </td>
+                                <td><?php echo $inf['descbanner']; ?> </td>
+                                <td><?php echo $inf['texto']; ?></td>
+                                <?php if ($inf['status'] == 1) : ?>
+                                    <td>
+                                        <span class="badge bg-green-gradient"><?php echo $inf['descricao']; ?> </span>
+                                    </td>
+                                <?php endif; ?>
+                                <?php if ($inf['status'] == 2) : ?>
+                                    <td>
+                                        <span class="badge bg-red-gradient"><?php echo $inf['descricao']; ?> </span>
+                                    </td>
+                                <?php endif; ?>
+                                <td>
+                                    <a class="glyphicon glyphicon-edit" href="/admin/banners/editar/id/<?php echo $inf['id']; ?>"></a>
+                                    <a class="glyphicon glyphicon-trash excluir-banner" id="<?= $inf['id']; ?>" href="#" ></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+
+                    <div class="row col-md-6">
+                        <?php
+                        echo $this->paginationControl($banners, 'Sliding', 'partials/paginator.phtml');
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

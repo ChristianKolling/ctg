@@ -39,13 +39,16 @@ class AgendaController extends ActionController
         $validacaoAgenda = new AgendaValidator();
         if($this->getRequest()->isPost()){
             $form->setInputFilter($validacaoAgenda->getInputFilter());
-            $form->setData($this->getRequest()->getPost());
+            $form->setData(array_merge_recursive(
+                $this->getRequest()->getPost()->toArray(), 
+                $this->getRequest()->getFiles()->toArray()));
             if($form->isValid()){
                 $values = $form->getData();
                 try {
                     $this->getService('Admin\Service\Agenda')->saveAgenda($values);
                     $this->flashMessenger()->addSuccessMessage('Evento agendado com Sucesso.');
                 } catch (\Exception $ex) {
+                    var_dump($ex->getMessage());exit;
                     $this->flashMessenger()->addErrorMessage('Erro ao agendar Evento.');
                 }
                 $this->redirect()->toUrl('/admin/agenda');

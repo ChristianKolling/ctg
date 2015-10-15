@@ -1,9 +1,8 @@
 <?php echo $this->doctype(); ?>
 <html lang="pt-br">
-
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('-|CTG|- POTRO SEM DONO '); ?>
+        <?php echo $this->headTitle('Admin ' . $this->translate(' - CTG POTRO SEM DONO'))->setSeparator(' - ')->setAutoEscape(false) ?>
 
         <?php
         echo $this->headMeta()
@@ -12,44 +11,15 @@
         ?>
         <?php
         echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-                ->prependStylesheet($this->basePath('css/bootstrap.css'))
-                ->prependStylesheet($this->basePath('css/auth.css'))
+                ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
         ?>
         <?php
         echo $this->headScript()
-                ->prependFile($this->basePath('js/jquery.min.js'))
+                ->prependFile($this->basePath('js/bootstrap-filestyle.js'))
         ;
         ?>
     </head>
-    <body class="corpo">
-        <div class="container">
-            
-            <div class="col-sm-12 col-md-12">
-                <div class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                        ×</button>
-                    <span class="glyphicon glyphicon-hand-right"></span> <strong>Mensagem de Erro</strong>
-                    <hr class="message-inner-separator">
-                    <p>
-                        
-                    </p>
-                </div>
-            </div>
-            
-            <div class="col-sm-12 col-md-12">
-                <div class="alert alert-success">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                        ×</button>
-                    <span class="glyphicon glyphicon-ok"></span> <strong>Mensagem de Sucesso</strong>
-                    <hr class="message-inner-separator">
-                    <p>
-                        
-                    </p>
-                </div>
-            </div>
-            
-            <?php echo $this->content; ?>
-        </div>
-        <?php echo $this->inlineScript() ?>
+    <body>
+        <?php echo $this->content; ?>
     </body>
 </html>

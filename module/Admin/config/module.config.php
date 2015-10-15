@@ -55,6 +55,7 @@ return array(
             'Admin\Service\Informativo' => 'Admin\Service\Informativo',
             'Admin\Service\Agenda' => 'Admin\Service\Agenda',
             'Admin\Service\Banner' => 'Admin\Service\Banner',
+            'Admin\Service\Galeria' => 'Admin\Service\Galeria',
         ),
     ),
     'controllers' => array(
@@ -62,7 +63,8 @@ return array(
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
             'Admin\Controller\Informativos' => 'Admin\Controller\InformativosController',
             'Admin\Controller\Agenda' => 'Admin\Controller\AgendaController',
-            'Admin\Controller\Banners' => 'Admin\Controller\BannersController'
+            'Admin\Controller\Banners' => 'Admin\Controller\BannersController',
+            'Admin\Controller\GaleriaDeFotos' => 'Admin\Controller\GaleriaDeFotosController',
         ),
     ),
     'doctrine' => array(

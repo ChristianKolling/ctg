@@ -1,0 +1,41 @@
+<section class="content-header">
+    <h1>
+        Galeria de Fotos
+        <small>Cadastre aqui um novo álbum</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="/admin/galeria-de-fotos">Galeria de Fotos</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <?php echo $this->form()->openTag($form); ?> 
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('titulo')); ?> 
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('status')); ?> 
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('imagem')); ?> 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 pull-right">
+                    <?php echo $this->formRow($form->get('salvar')); ?> 
+                </div>
+            </div>
+            <?php echo $this->form()->closeTag($form); ?> 
+        </div>
+    </div>
+</section>
+

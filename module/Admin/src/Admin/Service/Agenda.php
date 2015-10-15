@@ -10,7 +10,7 @@ class Agenda extends Service
     public function fetchAll($search = null)
     {
         $select = $this->getObjectManager()->createQueryBuilder()
-                ->select('Agenda.id','Agenda.evento','Agenda.local','Agenda.horario','Agenda.data','Status.descricao','Status.id as status')
+                ->select('Agenda.id','Agenda.evento','Agenda.local','Agenda.horario','Agenda.data','Status.descricao','Status.id as status','Agenda.imagem','Agenda.extensao')
                 ->from('Admin\Model\Agenda','Agenda')
                 ->join('Agenda.status','Status')
                 ->where('Agenda.evento LIKE ?1 OR Agenda.local LIKE ?1')
@@ -20,6 +20,7 @@ class Agenda extends Service
     
     public function saveAgenda($values)
     {
+        $imagem = explode('.',$values['imagem']['tmp_name']);
         if($values['id'] != 0){
             $agenda = $this->getObjectManager()->find('Admin\Model\Agenda',$values['id']);    
         } else {
@@ -29,11 +30,14 @@ class Agenda extends Service
         $agenda->setLocal($values['local']);
         $agenda->setHorario($values['horario']);
         $agenda->setEvento($values['nome-evento']);
-        $agenda->setData(new \DateTime($values['data']));
+        $agenda->setData(new \DateTime('now'));
+        $agenda->setImagem(str_replace('public', '', $imagem[0]));
+        $agenda->setExtensao($imagem[1]);
         $this->getObjectManager()->persist($agenda);
         try {
             $this->getObjectManager()->flush();
         } catch (\Exception $ex) {
+            var_dump($ex->getMessage());exit;
             throw new Exception('Erro ao cadastrar evento na agenda');
         }
     }

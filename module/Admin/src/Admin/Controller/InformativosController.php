@@ -50,7 +50,6 @@ class InformativosController extends ActionController
                     $this->getService('Admin\Service\Informativo')->saveInformativo($dados);
                     $this->flashMessenger()->addSuccessMessage('Informativo salvo com Sucesso.');
                 } catch (\Exception $e) {
-                    die($e->getMessage());exit;
                     $this->flashMessenger()->addErrorMessage('Erro ao salvar informativo, por favor tente novamente.');
                 }
                 return $this->redirect()->toUrl('/admin/informativos');
@@ -73,7 +72,9 @@ class InformativosController extends ActionController
         $request = $this->getRequest();
         if ($request->isPost()) {
             $form->setInputFilter($validacaoInformativo->getInputFilter());
-            $form->setData($request->getPost());
+            $form->setData(array_merge_recursive(
+                $this->getRequest()->getPost()->toArray(), 
+                $this->getRequest()->getFiles()->toArray()));
             if ($form->isValid()) {
                 $dados = $form->getData();
                 try {

@@ -1,0 +1,73 @@
+<div id="dialog-confirm" title="Deseja realmente excluir este registro?">
+</div>
+<section class="content-header">
+    <h1>
+        Galeria de Fotos
+        <small>Acompanhe aqui suas Fotos</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="/admin/galeria-de-fotos">Galeria de Fotos</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <table class="table table-striped custab" id="table-produtos">
+                        <thead>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="/admin/galeria-de-fotos/adicionar-album" class="btn btn-primary btn-sm pull-left"><b>+</b> Add novo Álbum</a>
+                            </div>
+
+                            <div class="col-md-6">
+                                <?php echo $this->form()->openTag($form); ?>
+                                <div id="custom-search-input">
+                                    <div class="input-group">
+                                        <?php echo $this->formRow($form->get('search')); ?> 
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-info btn-sm" type="submit">
+                                                <i class="glyphicon glyphicon-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <?php echo $this->form()->closeTag($form); ?>
+                            </div>
+
+                        </div>
+                        </thead>
+
+
+
+                        <div class="row" style="padding-top: 25px;">
+                            
+                            <?php foreach ($galeria as $img): ?>
+                            <div class="col-md-3 portfolio-item">
+                                <a href="#">
+                                    <img class="img-responsive" src="<?php echo $img['imagem'] . "." . $img['extensao']; ?>" alt="">
+                                </a>
+                            </div>
+                            <?php endforeach; ?>
+                            
+                        </div>
+
+                    </table>
+
+                    <div class="row col-md-6">
+                        <?php
+                        echo $this->paginationControl($galeria, 'Sliding', 'partials/paginator.phtml');
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .portfolio-item {
+        margin-bottom: 25px;
+    }
+</style>

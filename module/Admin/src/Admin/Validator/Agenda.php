@@ -81,7 +81,7 @@ class Agenda {
                             ),
                         ),
             )));
-            
+
             $inputFilter->add($inputFactory->createInput(array(
                         'name' => 'horario',
                         'required' => true,
@@ -96,6 +96,45 @@ class Agenda {
                             ),
                         ),
             )));
+
+            $inputFilter->add(
+                    $inputFactory->createInput(array(
+                        'name' => 'imagem',
+                        'required' => true,
+                        'validators' => array(
+                            array(
+                                'name' => 'Zend\Validator\File\UploadFile',
+                                'options' => array(
+                                    'messages' => array(
+                                        'fileUploadFileErrorNoFile' => 'Arquivo não foi carregado',
+                                    )
+                                )
+                            ),
+                            array(
+                                'name' => 'Zend\Validator\File\Extension',
+                                'options' => array(
+                                    'extension' => 'png,jpg',
+                                    'messages' => array(
+                                        'fileExtensionNotFound' => 'Extensão de arquivo não encontrada',
+                                        'fileExtensionFalse' => 'Extensão não permitida'
+                                    ),
+                                ),
+                            ),
+                        ),
+                        'filters' => array(
+                            array(
+                                'name' => 'Zend\Filter\File\RenameUpload',
+                                'options' => array(
+                                    'target' => 'public/uploads/agenda',
+                                    'randomize' => true,
+                                    'use_upload_extension' => true,
+                                    'use_upload_name' => true
+                                )
+                            )
+                        )
+                    ))
+            );
+
 
             $this->inputFilter = $inputFilter;
         }
