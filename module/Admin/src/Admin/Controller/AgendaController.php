@@ -87,18 +87,18 @@ class AgendaController extends ActionController
         ));
     }
     
-    public function deletarAction()
+    public function deleteAction()
     {
         if($this->getRequest()->isPost()){
             $id = (int) $this->getRequest()->getPost()['id'];
-            if($id > 0){
+            if ($id > 0) {
                 try {
                     $this->getService('Admin\Service\Agenda')->delete($id);
-                    $this->flashMessenger()->addSuccessMessage('Evento deletado com Sucesso.');
                 } catch (\Exception $ex) {
-                    $this->flashMessenger()->addErrorMessage('O Evento não pode ser deletado.');
+                    throw new Exception('Falha ao excluir registro');
                 }
             }
+            $this->redirect()->toUrl('/admin/agenda');
         }
     }
 }

@@ -2,7 +2,6 @@
     <div class="eng_background">
         <div class="banner">
             <a class="backward"></a>
-
             <div class="images">
                 <?php foreach ($banner as $opt): ?>
                     <div class="principal">
@@ -24,7 +23,6 @@
                     </div>
                 <?php endforeach; ?>
             </div>
-
             <div class="transp_forward"></div>
             <a class="forward"></a>
             <div class="slidetabs">
@@ -34,20 +32,16 @@
             </div>
 
         </div>
-
         <div class="content_index">
-
             <div class="conheca">
                 <h3 class="border">CONHEÇA O CTG</h3>
                 <p>Fundado em ...., a entidade conta hoje com centenas de associados, portanto centenas de famílias agregadas com a finalidade de cultuar a tradição gaúcha, preservando a natureza e procurando reviver os hábitos e costumes que compõem as mais gloriosas tradições do gaúcho.<br/><br/>
                     <a href="/site/o-ctg" class="yellow">SAIBA MAIS</a>
                 </p>
             </div>
-
             <div class="programacao">
                 <h3 class="border">AGENDA DO MÊS</h3>
                 <a class="backward2"></a>
-
                 <?php foreach ($agenda as $dado): ?>
                     <div class="images2">
                         <div class="principal2">
@@ -58,19 +52,14 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-
                 <a class="forward2"></a>
-
                 <div class="slidetabs2">
                     <?php foreach ($agenda as $dado): ?>
                         <a href="#"></a>
                     <?php endforeach; ?>
                 </div>
-
             </div>
-
             <div class="divisor_index"></div>
-
             <div class="informativo">
                 <h3 class="border">INFORMATIVO</h3>
                 <?php foreach ($informativos as $item): ?>
@@ -82,17 +71,17 @@
                         </div>
                         <div class="info_informativo">
                             <span style="font-size:11px;"><?php echo $item['cadastro']->format('d-m-Y'); ?></span>
-                            <h5><a href="/informativos/ver/id/<?php echo $item['id']; ?>"><?php echo $item['titulo']; ?></a></h5>
-                            <p><a href="/informativos/ver/id/<?php echo $item['id']; ?>"> <?php echo $item['descinf']; ?> </a></p>
+                            <h5><a href="/informativos/ver/id/<?php echo $item['id']; ?>">
+                                <?php echo $item['titulo']; ?></a></h5>
+                            <p><a href="/informativos/ver/id/<?php echo $item['id']; ?>"> 
+                                <?php echo $item['descinf']; ?> </a></p>
                         </div>
                     </div>
                 <?php endforeach; ?>
             </div>
-
             <div class="galeria_index">
                 <h3 class="border">GALERIA DE FOTOS</h3>
                 <div class="eng_fotos_galeria">
-
                 </div>
             </div>
         </div>

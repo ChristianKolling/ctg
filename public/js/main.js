@@ -59,7 +59,8 @@ $(document).ready(function () {
             });
         });
     });
-    
+});
+$(document).ready(function () {
     $(".excluir-agenda").click(function () {
         var id = $(this).attr('id');
         $(function () {
@@ -80,14 +81,13 @@ $(document).ready(function () {
                     "Sim": function () {
                         $.ajax({
                             type: 'POST',
-                            url: '/admin/agenda/deletar',
+                            url: '/admin/agenda/delete',
                             data: {
                                 'id': id
                             },
                             success: function (response) {
                                 $('body').plainOverlay('hide');
                                 $('#dialog-confirm').dialog("close");
-                                $("#msg-sucesso").css("display: block;");
                                 $("[data-referencia='" + id + "']").remove();
                             },
                             beforeSend: function (xhr) {

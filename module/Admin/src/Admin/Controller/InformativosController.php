@@ -103,6 +103,7 @@ class InformativosController extends ActionController
                     throw new Exception('Falha ao excluir registro');
                 }
             }
+            $this->redirect()->toUrl('/admin/informativos');
         }
     }
 }
