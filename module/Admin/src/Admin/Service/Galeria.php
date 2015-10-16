@@ -9,10 +9,9 @@ class Galeria extends Service {
 
     public function fetchAll($search = null) {
         $query = $this->getObjectManager()->createQueryBuilder()
-                ->select('Galeria.id','Galeria.titulo','Status.id as idstatus',
-                        'Status.descricao','Galeria.imagem','Galeria.extensao','Galeria.cadastro')
-                ->from('Admin\Model\Galeria','Galeria')
-                ->join('Galeria.status','Status');
+                ->select('Galeria.id', 'Galeria.titulo', 'Status.id as idstatus', 'Status.descricao', 'Galeria.imagem', 'Galeria.extensao', 'Galeria.cadastro')
+                ->from('Admin\Model\Galeria', 'Galeria')
+                ->join('Galeria.status', 'Status');
         return $query->getQuery()->getResult();
     }
 
@@ -35,5 +34,4 @@ class Galeria extends Service {
             throw new \Exception('Erro ao cadastrar álbum');
         }
     }
-
 }

@@ -46,7 +46,7 @@
                             
                             <?php foreach ($galeria as $img): ?>
                             <div class="col-md-3 portfolio-item">
-                                <a href="#">
+                                <a href="/admin/galeria-de-fotos/publicar/id/<?php echo $img['id'];?>">
                                     <img class="img-responsive" src="<?php echo $img['imagem'] . "." . $img['extensao']; ?>" alt="">
                                 </a>
                             </div>
@@ -58,7 +58,7 @@
 
                     <div class="row col-md-6">
                         <?php
-                        echo $this->paginationControl($galeria, 'Sliding', 'partials/paginator.phtml');
+                            echo $this->paginationControl($galeria, 'Sliding', 'partials/paginator.phtml');
                         ?>
                     </div>
                 </div>

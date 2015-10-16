@@ -1,0 +1,51 @@
+<section class="content-header">
+    <h1>
+        Galeria de Fotos
+        <small>Vejá e Publique novas Fotos</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="/admin/galeria-de-fotos/publicar">Publicar novas Fotos</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <?php echo $this->form()->openTag($form); ?> 
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <?php echo $this->formRow($form->get('imagem')); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 pull-right">
+                    <?php echo $this->formRow($form->get('salvar')); ?> 
+                </div>
+            </div>
+            <?php echo $this->form()->closeTag($form); ?> 
+
+            <h1>
+                Galeria de Fotos
+                <small>Vejá e Publique novas Fotos</small>
+            </h1>    <div class="row" style="padding-top: 25px;">
+
+                <?php foreach ($fotos as $img): ?>
+                    <div class="col-md-2 portfolio-item">
+                        <a href="<?php echo $img['imagem'] . "." . $img['extensao']; ?>" >
+                            <img width="140px" height="104px;"  src="<?php echo $img['imagem'] . "." . $img['extensao']; ?>" alt="">
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<style>
+    .portfolio-item {
+        margin-bottom: 25px;
+    }
+</style>

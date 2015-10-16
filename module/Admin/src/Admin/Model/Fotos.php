@@ -8,32 +8,32 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="fotos")
  */
-class Fotos
-{
+class Fotos {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      * 
      */
-    protected $id; 
+    protected $id;
 
     /**
      * @ORM\Column(type="string")
      */
     protected $imagem;
-    
+
     /**
      * @ORM\Column(type="string")
      */
     protected $extensao;
-   
+
     /**
      * @ORM\ManyToOne(targetEntity="Galeria")
      * @ORM\JoinColumn(name="galeria", referencedColumnName="id")
      * 
      */
-    protected $galeria;    
+    protected $galeria;
 
     function getId() {
         return $this->id;
@@ -45,10 +45,6 @@ class Fotos
 
     function getExtensao() {
         return $this->extensao;
-    }
-
-    function getGaleria() {
-        return $this->galeria;
     }
 
     function setId($id) {
@@ -63,9 +59,12 @@ class Fotos
         $this->extensao = $extensao;
     }
 
+    function getGaleria() {
+        return $this->galeria;
+    }
+
     function setGaleria($galeria) {
         $this->galeria = $galeria;
     }
-
 
 }

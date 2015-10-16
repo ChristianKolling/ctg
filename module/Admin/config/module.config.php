@@ -56,6 +56,7 @@ return array(
             'Admin\Service\Agenda' => 'Admin\Service\Agenda',
             'Admin\Service\Banner' => 'Admin\Service\Banner',
             'Admin\Service\Galeria' => 'Admin\Service\Galeria',
+            'Admin\Service\Fotos' => 'Admin\Service\Fotos',
         ),
     ),
     'controllers' => array(

@@ -123,5 +123,4 @@ class Informativo
         $this->extensao = $extensao;
     }
 
-
 }
