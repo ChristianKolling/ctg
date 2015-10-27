@@ -41,8 +41,7 @@ class GaleriaDeFotosController extends ActionController {
         if ($request->isPost()) {
             $form->setInputFilter($fotosValidator->getInputFilter());
             $form->setData(array_merge_recursive(
-                    $this->getRequest()->getPost()->toArray(), 
-                    $this->getRequest()->getFiles()->toArray())
+                            $this->getRequest()->getPost()->toArray(), $this->getRequest()->getFiles()->toArray())
             );
             if ($form->isValid()) {
                 $dados = $form->getData();
@@ -77,13 +76,12 @@ class GaleriaDeFotosController extends ActionController {
         if ($request->isPost()) {
             $form->setInputFilter($fotosValidator->getInputFilter());
             $form->setData(array_merge_recursive(
-                    $this->getRequest()->getPost()->toArray(), 
-                    $this->getRequest()->getFiles()->toArray())
+                            $this->getRequest()->getPost()->toArray(), $this->getRequest()->getFiles()->toArray())
             );
             if ($form->isValid()) {
                 $dados = $form->getData();
                 try {
-                    $this->getService('Admin\Service\Fotos')->saveFotos($dados,$album);
+                    $this->getService('Admin\Service\Fotos')->saveFotos($dados, $album);
                     $this->flashMessenger()->addSuccessMessage('Fotos Publicadas com Sucesso.');
                 } catch (\Exception $e) {
                     $this->flashMessenger()->addErrorMessage('Erro ao publicar fotos, por favor tente novamente.');
@@ -95,6 +93,27 @@ class GaleriaDeFotosController extends ActionController {
             'form' => $form,
             'fotos' => $collection
         ));
+    }
+
+    public function excluirFotoAction() {
+        $idalbum = $this->params()->fromRoute('id',0);
+        if ($this->getRequest()->isXmlHttpRequest()) {
+            $data = $this->getRequest()->getPost();
+            $id = (int) $data['id'];
+            $foto = $this->getObjectManager()->getRepository('Admin\Model\Fotos')
+                    ->findOneBy(array(
+                'id' => $id
+            ));
+            $arquivo = 'public/'.$foto->getImagem().'.'.$foto->getExtensao();
+            unlink($arquivo);
+            $this->getObjectManager()->remove($foto);
+            try {
+                $this->getObjectManager()->flush();
+            } catch (\Exception $ex) {
+                throw new Exception('Falha ao excluir registro');
+            }
+            $this->redirect()->toUrl('/admin/galeria-de-fotos/'.$idalbum);
+        }
     }
 
 }

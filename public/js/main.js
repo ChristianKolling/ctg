@@ -103,3 +103,46 @@ $(document).ready(function () {
         });
     });
 });
+$(document).ready(function () {
+    $(".excluir-foto").click(function () {
+        var id = $(this).attr('id');
+        $(function () {
+            $("#dialog-confirm").dialog({
+                resizable: false,
+                height: 140,
+                width: 400,
+                modal: true,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                },
+                buttons: {
+                    "Sim": function () {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/admin/galeria-de-fotos/excluir-foto',
+                            data: {
+                                'id': id
+                            },
+                            success: function (response) {
+                                $('body').plainOverlay('hide');
+                                $('#dialog-confirm').dialog("close");
+                                $("[data-referencia='" + id + "']").remove();
+                            },
+                            beforeSend: function (xhr) {
+                                $('body').plainOverlay('show');
+                            }
+                        });
+                    },
+                    Cancelar: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        });
+    });
+});

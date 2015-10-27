@@ -8,7 +8,6 @@ return array(
         'Core',
         'Site',
         'Admin',
-        'Auth'
     ),
     'module_listener_options' => array(
         'module_paths' => array(
